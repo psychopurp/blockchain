@@ -1,3 +1,3 @@
 # blockchain
 
-minimal implementation of block chain, for the purpose of learning how blockchain works.
+minimal implementation of blockchain, for the purpose of learning how blockchain works.

@@ -7,6 +7,7 @@ import (
 )
 
 func TestBlockChain_AddBlock(t *testing.T) {
+	TargetBits = 8
 
 	bc := NewBlockChain()
 

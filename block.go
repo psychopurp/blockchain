@@ -13,6 +13,7 @@ type Block struct {
 	Timestamp     int64
 	PrevBlockHash []byte // hash of previous block
 	Hash          []byte // hash of itself
+	Nonce         int
 
 	// Block body
 	Data []byte
@@ -23,8 +24,9 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 	block.PrevBlockHash = prevBlockHash
 	block.Timestamp = time.Now().Unix()
 	block.Data = []byte(data)
-	block.Hash = setHash(block.Timestamp, block.PrevBlockHash, block.Data)
 
+	pow := NewProofOfWork(block, TargetBits)
+	block.Nonce, block.Hash = pow.Run()
 	return block
 }
 
@@ -48,4 +50,5 @@ func (b *Block) Print() {
 	fmt.Printf("Hash: %x\n", b.Hash)
 	fmt.Printf("PrevBlockHash: %x\n", b.PrevBlockHash)
 	fmt.Println("Timestamp: ", b.Timestamp)
+	fmt.Printf("PoW: %s\n", strconv.FormatBool(NewProofOfWork(b, TargetBits).Validate()))
 }
