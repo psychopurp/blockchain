@@ -1,11 +1,8 @@
 package main
 
 func main() {
-	bc := NewBlockChain()
+	cli := &CLI{}
 
-	bc.AddBlock("Send 1 BTC to cacts.eth")
-	bc.AddBlock("Send 2 more BTC to cacts.eth")
-
-	bc.Print()
+	cli.Run()
 
 }

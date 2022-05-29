@@ -1,21 +1,11 @@
 package main
 
-import (
-	"testing"
+// func TestBlockChain_AddBlock(t *testing.T) {
+// 	TargetBits = 8
 
-	"github.com/stretchr/testify/assert"
-)
+// 	bc := NewBlockChain()
 
-func TestBlockChain_AddBlock(t *testing.T) {
-	TargetBits = 8
+// 	bc.AddBlock("Send 1 BTC to cacts.eth")
+// 	bc.AddBlock("Send 2 more BTC to cacts.eth")
 
-	bc := NewBlockChain()
-
-	bc.AddBlock("Send 1 BTC to cacts.eth")
-	bc.AddBlock("Send 2 more BTC to cacts.eth")
-
-	bc.Print()
-
-	assert.Equal(t, 3, len(bc.blocks))
-
-}
+// }
